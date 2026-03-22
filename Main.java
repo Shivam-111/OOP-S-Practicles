@@ -1,48 +1,34 @@
-// Define the interface
-interface Filterable {
-    void apply_filter(String filter_type);
-    void reset_filter();
-}
-
-// ImageProcessor class implementing Filterable
-class ImageProcessor implements Filterable {
-    @Override
-    public void apply_filter(String filter_type) {
-        System.out.println("Applying " + filter_type + " filter to the image...");
-        // Example: grayscale, blur, sharpen, etc.
+class Calculator {
+    // Method to add two integers
+    int add(int a, int b) {
+        return a + b;
     }
 
-    @Override
-    public void reset_filter() {
-        System.out.println("Resetting image filters to original state.");
+    // Method to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method to add two doubles
+    double add(double a, double b) {
+        return a + b;
     }
 }
 
-// DataAnalyzer class implementing Filterable
-class DataAnalyzer implements Filterable {
-    @Override
-    public void apply_filter(String filter_type) {
-        System.out.println("Applying " + filter_type + " filter to the dataset...");
-        // Example: filter out null values, remove duplicates, select specific ranges
-    }
-
-    @Override
-    public void reset_filter() {
-        System.out.println("Resetting dataset filters to show all data.");
-    }
-}
-
-// Demo class
 public class Main {
     public static void main(String[] args) {
-        // Using ImageProcessor
-        Filterable imgProcessor = new ImageProcessor();
-        imgProcessor.apply_filter("Grayscale");
-        imgProcessor.reset_filter();
+        Calculator calc = new Calculator();
 
-        // Using DataAnalyzer
-        Filterable dataAnalyzer = new DataAnalyzer();
-        dataAnalyzer.apply_filter("Remove Nulls");
-        dataAnalyzer.reset_filter();
+        // Calls add(int, int)
+        int sum1 = calc.add(10, 20);
+        System.out.println("Sum of two integers: " + sum1);
+
+        // Calls add(int, int, int)
+        int sum2 = calc.add(5, 15, 25);
+        System.out.println("Sum of three integers: " + sum2);
+
+        // Calls add(double, double)
+        double sum3 = calc.add(12.5, 7.3);
+        System.out.println("Sum of two doubles: " + sum3);
     }
 }
